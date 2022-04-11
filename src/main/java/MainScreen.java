@@ -4,15 +4,30 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class MainScreen {
+    BaseFunc baseFunc;
+     By loginDetails = By.id("sessionDropdown");
+     By plans = By.linkText("Plans");
+     By newPlan = By.xpath("//button[@ng-click='addPlan()']");
+     By keywords = By.linkText("Keywords");
+     By newKeyword = By.xpath("//button[@ng-click='addFunction()']");
 
-    WebDriver driver = new ChromeDriver();
+     By parameters = By.linkText("Parameteres");
+     By executions = By.linkText("Scheduler");
+     By grid = By.linkText("Grid");
+     By admin = By.linkText("Admin");
 
-    WebElement plans = driver.findElement(By.name("//input[@name='username']"));
-    WebElement keywords = driver.findElement(By.xpath("//input[@name='password']"));
-    WebElement parameters = driver.findElement(By.xpath("//button[@type='submit']"));
-    WebElement executions = driver.findElement(By.xpath("//button[@type='submit']"));
-    WebElement scheduler = driver.findElement(By.xpath("//button[@type='submit']"));
-    WebElement grid = driver.findElement(By.xpath("//button[@type='submit']"));
-    WebElement admin = driver.findElement(By.xpath("//button[@type='submit']"));
+//    WebElement parameters = baseFunc.getElement(By.xpath("//button[@type='submit']"));
+//    WebElement executions = baseFunc.getElement(By.xpath("//button[@type='submit']"));
+//    WebElement scheduler = baseFunc.getElement(By.xpath("//button[@type='submit']"));
+//    WebElement grid = baseFunc.getElement(By.xpath("//button[@type='submit']"));
+//    WebElement admin = baseFunc.getElement(By.xpath("//button[@type='submit']"));
+
+    public MainScreen(BaseFunc baseFunc) {
+        this.baseFunc = baseFunc;
+    }
+
+    public void switchTab(By tabName) {
+        baseFunc.getElement(tabName).click();
+    }
 
 }

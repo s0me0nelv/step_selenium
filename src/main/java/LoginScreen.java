@@ -1,41 +1,24 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.devtools.v85.log.Log;
 
 public class LoginScreen {
-    WebDriver driver;
+    BaseFunc baseFunc;
     private By loginInput = By.name("username");
     private By passInput = By.name("password");
     private By enter = By.xpath("//button[@type='submit']");
+    By error = By.xpath("//div[text()='Authentication failed: Invalid username/password']");
 
-    public LoginScreen(WebDriver driver) {
-        this.driver = driver;
-    }
-
-
-//    WebElement loginInput = driver.findElement(By.name("username"));
-//    WebElement passInput = driver.findElement(By.xpath("//input[@name='password']"));
-//    WebElement enter = driver.findElement(By.xpath("//button[@type='submit']"));
-
-    public void getToUrl(String url) {
-        driver.get(url);
+    public LoginScreen(BaseFunc baseFunc) {
+        this.baseFunc = baseFunc;
     }
 
     public void clearLoginDetails() {
-        driver.findElement(loginInput).clear();
-        driver.findElement(passInput).clear();
+        baseFunc.getElement(loginInput).clear();
+        baseFunc.getElement(passInput).clear();
     }
 
     public void login(String login, String pass) {
-        driver.findElement(loginInput).sendKeys(login);
-        driver.findElement(passInput).sendKeys(pass);
-        driver.findElement(enter).click();
+        baseFunc.getElement(loginInput).sendKeys(login);
+        baseFunc.getElement(passInput).sendKeys(pass);
+        baseFunc.getElement(enter).click();
     }
-
-    public void quitBrowser() {
-        driver.quit();
-    }
-
 }
