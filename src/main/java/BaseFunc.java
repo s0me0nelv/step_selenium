@@ -12,10 +12,12 @@ import java.util.Properties;
 
 public class BaseFunc {
 
+    public static final String WEBDRIVER_PATH = "C:\\Program Files\\JetBrains\\chromedriver.exe";
+    public static final String PROPERTIES_PATH = "C:\\Users\\s0me0ne\\IdeaProjects\\step_selenium\\src\\datafile.properties";
     public WebDriver driver;
 
     public BaseFunc() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\JetBrains\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", WEBDRIVER_PATH);
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
@@ -23,7 +25,7 @@ public class BaseFunc {
     }
 
     public Properties getProperties(){
-        File file = new File("C:\\Users\\s0me0ne\\IdeaProjects\\step_selenium\\src\\datafile.properties");
+        File file = new File(PROPERTIES_PATH);
         FileInputStream fileInput = null;
         try {
             fileInput = new FileInputStream(file);
