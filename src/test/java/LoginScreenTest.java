@@ -2,12 +2,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Properties;
-
 import static org.junit.Assert.assertEquals;
 
 
@@ -18,8 +12,6 @@ public class LoginScreenTest {
     private BaseFunc baseFunc = new BaseFunc();
     private LoginScreen loginScreen = new LoginScreen(baseFunc);
     private MainScreen mainScreen = new MainScreen(baseFunc);
-
-
 
 
     @Before

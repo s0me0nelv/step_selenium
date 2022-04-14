@@ -24,7 +24,7 @@ public class BaseFunc {
 
     }
 
-    public Properties getProperties(){
+    public Properties getProperties() {
         File file = new File(PROPERTIES_PATH);
         FileInputStream fileInput = null;
         try {
