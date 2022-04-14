@@ -19,6 +19,10 @@ public class BaseFunc {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+    }
+
+    public Properties getProperties(){
         File file = new File("C:\\Users\\s0me0ne\\IdeaProjects\\step_selenium\\src\\datafile.properties");
         FileInputStream fileInput = null;
         try {
@@ -29,17 +33,13 @@ public class BaseFunc {
         }
         Properties prop = new Properties();
 
-        //load properties file
         try {
             prop.load(fileInput);
         } catch (
                 IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public static void getProperties(){
-
+        return prop;
     }
 
     public void getToUrl(String url) {
@@ -47,9 +47,7 @@ public class BaseFunc {
     }
 
     public WebElement getElement(By locator) {
-
         return driver.findElement(locator);
-
     }
 
     public void quitBrowser() {

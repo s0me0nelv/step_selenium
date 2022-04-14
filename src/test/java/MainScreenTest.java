@@ -23,7 +23,7 @@ public class MainScreenTest {
     @Test //all in one test to save time and not to open separate entity each time and make same steps
     public void checkTabsSwitching() {
         loginScreen.clearLoginDetails();
-        loginScreen.login("admin", "init");
+        loginScreen.login(baseFunc.getProperties().getProperty("username"), baseFunc.getProperties().getProperty("password"));
         mainScreen.switchTab(mainScreen.plans);
         assertTrue(baseFunc.getElement(mainScreen.newPlanBtn).isDisplayed());
         mainScreen.switchTab(mainScreen.keywords);

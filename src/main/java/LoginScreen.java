@@ -18,7 +18,7 @@ public class LoginScreen {
     }
 
     public void login(String login, String pass) {
-        baseFunc.getElement(loginInput).sendKeys(prop.getProperty("username"));
+        baseFunc.getElement(loginInput).sendKeys(login);
         baseFunc.getElement(passInput).sendKeys(pass);
         baseFunc.getElement(enter).click();
     }

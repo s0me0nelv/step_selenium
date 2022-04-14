@@ -35,13 +35,13 @@ public class LoginScreenTest {
 
     @Test
     public void checkSuccessfulLogin() {
-        enterLoginDetails("admin", "init");
+        enterLoginDetails(baseFunc.getProperties().getProperty("username"), baseFunc.getProperties().getProperty("password"));
         assertEquals(ADMIN_LOGIN_NAME, baseFunc.getElement(mainScreen.loginDetails).getText());
     }
 
     @Test
     public void checkWrongPassword() {
-        enterLoginDetails("admin", "initt");
+        enterLoginDetails(baseFunc.getProperties().getProperty("username"), "abc");
         assertEquals(AUTHENTICATION_FAILED, baseFunc.getElement(loginScreen.error).getText());
     }
 
