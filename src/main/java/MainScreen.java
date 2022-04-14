@@ -1,26 +1,23 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class MainScreen {
+
     BaseFunc baseFunc;
      By loginDetails = By.id("sessionDropdown");
      By plans = By.linkText("Plans");
-     By newPlan = By.xpath("//button[@ng-click='addPlan()']");
+     By newPlanBtn = By.xpath("//button[@ng-click='addPlan()']");
      By keywords = By.linkText("Keywords");
-     By newKeyword = By.xpath("//button[@ng-click='addFunction()']");
-
-     By parameters = By.linkText("Parameteres");
-     By executions = By.linkText("Scheduler");
+     By newKeywordBtn = By.xpath("//button[@ng-click='addFunction()']");
+     By parameters = By.linkText("Parameters");
+     By newParameterBtn = By.xpath("//button[@ng-click='addParameter()']");
+     By executions = By.linkText("Executions");
+     By executionListTab = By.xpath("//*[text()=' Execution list ']");
+     By scheduler = By.linkText("Scheduler");
+     By newTaskBtn = By.xpath("//button[@ng-click='addSchedulerEntry()']");
      By grid = By.linkText("Grid");
+     By gridAgentsTab = By.xpath("//*[@heading='Agents']");
      By admin = By.linkText("Admin");
-
-//    WebElement parameters = baseFunc.getElement(By.xpath("//button[@type='submit']"));
-//    WebElement executions = baseFunc.getElement(By.xpath("//button[@type='submit']"));
-//    WebElement scheduler = baseFunc.getElement(By.xpath("//button[@type='submit']"));
-//    WebElement grid = baseFunc.getElement(By.xpath("//button[@type='submit']"));
-//    WebElement admin = baseFunc.getElement(By.xpath("//button[@type='submit']"));
+     By adminUsersTab = By.xpath("//button[@ng-click='addUser()']");
 
     public MainScreen(BaseFunc baseFunc) {
         this.baseFunc = baseFunc;
@@ -29,5 +26,4 @@ public class MainScreen {
     public void switchTab(By tabName) {
         baseFunc.getElement(tabName).click();
     }
-
 }
